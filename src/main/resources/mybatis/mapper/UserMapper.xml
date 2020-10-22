@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zxw.ztestboot.dao.UserMapper" >
+
+    <resultMap id="BaseResultMap" type="cn.zxw.ztestboot.entity.User" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="name" property="userName" jdbcType="VARCHAR" />
+        <result column="age" property="userAge" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <select id="getAllUser" resultMap="BaseResultMap"  >
+        SELECT * FROM ZXW_TEST_USER
+    </select>
+
+    <insert id="addUser">
+        INSERT INTO ZXW_TEST_USER(name,age) VALUES (#{userName},#{userAge})
+    </insert>
+
+</mapper>
